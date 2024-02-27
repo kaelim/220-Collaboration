@@ -7,22 +7,23 @@ class Character {
 
   }
 
+  resizeCharacter () {
+
+    for(var i = 0; i < runningCycle.length; i++)
+  {
+      runningCycle[i].resize(runningCycle[i].width / 5, 0);
+  }
+  
+  for(var j = 0; j < idleCycle.length; j++)
+  {
+      idleCycle[j].resize(idleCycle[j].width / 5, 0);
+  }
+  
+  }
+
   drawCharacter() {
 
-    if(flipX)
-    {
-        push();
-        
-        scale(-1, 1);
-
-        image(runningCycle[i], -xImage-runningCycle[i].width/2, yImage);
-
-        pop();
-    }
-    else
-    {
-        image(runningCycle[i], xImage, yImage);
-    }
+   
     
    if(keyIsPressed)
    {
@@ -45,11 +46,30 @@ class Character {
         flipX = false;
      }
 
-  }
+     if(flipX)
+     {
+         push();
+         
+         scale(-1, 1);
+ 
+         image(runningCycle[i], -xImage-runningCycle[i].width/2, yImage);
+ 
+         pop();
+     }
+     else
+     {
+         image(runningCycle[i], xImage, yImage);
+     }
+
+  } else{
+
+    image(idleCycle[i], xImage, yImage);
 
   }
 
-  characterArray () {
+  }
+
+  runningArray () {
 
 runningCycle[0] = run1;
 runningCycle[1] = run2;
@@ -62,14 +82,20 @@ runningCycle[7] = run8;
 
   }
 
-resizeCharacter () {
+  idleArray () {
 
-  for(var i = 0; i < runningCycle.length; i++)
-{
-    runningCycle[i].resize(runningCycle[i].width / 5, 0);
-}
+idleCycle[0] = idle1;
+idleCycle[1] = idle2;
+idleCycle[2] = idle3;
+idleCycle[3] = idle4;
+idleCycle[4] = idle5;
+idleCycle[5] = idle6;
+idleCycle[6] = idle7;
+idleCycle[7] = idle8;
+idleCycle[8] = idle9;
+idleCycle[9] = idle10;
+console.log(idleCycle.length)
+  }
 
-
-}
 
 }
