@@ -2,7 +2,7 @@ var myFood;
 var myCharacter;
 
 var xImage = 100,
-  yImage = 25;
+    yImage = 25;
 var speedX, speedY;
 
 var i = 0;
@@ -22,16 +22,28 @@ var textY = 40;
 let runStrings;
 let idleStrings;
 
+let backgroundMusic;
+let badFood;
+let goodFood;
+
 function preload() {
   runStrings = loadStrings('images/run.txt');
   idleStrings = loadStrings('images/idle.txt');
+
+  backgroundMusic = loadSound('./assets/background music.wav');
+  badFood = loadSound('./assets/ouchie.wav');
+  goodFood= loadSound('./assets/power up.wav');
+
 }
 
 function setup() {
 
   createCanvas(800, 600);
+  
+  backingMusic();
 
   myFood = new Food(random(10, width), random(20, height), random(20, 80));
+  myFood2 = new Food2(random(10, width), random(20, height), random(20, 80));
   
   myCharacter = new Character(runStrings, idleStrings, 100, 100, 680, 472);
 
@@ -39,11 +51,14 @@ function setup() {
 
   setInterval(timeIt, 1000);
 
+
 }
+
 
 function draw() {
   background(200);
   myFood.drawFood();
+  myFood2.drawFood2();
 
   fill(25, 0, 170);
   textSize(24);
@@ -60,8 +75,18 @@ function draw() {
     myFood.x = random(width - 90);
     myFood.y = random(height - 90);
     score = ++f;
+    goodFood.play();
   }
+    //collision 2
+    let d2 = dist(xImage + 100, yImage + 100, myFood2.x2, myFood2.y2);
 
+    if (d2 < 150) {
+  
+      myFood2.x2 = random(width - 90);
+      myFood2.y2 = random(height - 90);
+      score = --f;
+      badFood.play();
+}
 }
 
 function changeTime() {
@@ -83,5 +108,12 @@ function timeIt() {
   } else {
     time = 100;
   }
- 
 }
+  function backingMusic() {
+
+    backgroundMusic.play();
+    backgroundMusic.loop();
+    backgroundMusic.setVolume(0.2);
+    userStartAudio();
+
+  }

@@ -6,7 +6,8 @@ class Food {
   }
 
   drawFood()
-  {     fill(50, 50, 255);
-        circle(this.x, this.y, this.diameter);
+  {   
+     fill(141, 245, 66);
+     circle(this.x, this.y, this.diameter);
   }
 }

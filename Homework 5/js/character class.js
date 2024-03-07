@@ -63,6 +63,7 @@ class Character {
       if (key == "d") {
         xImage += 1;
         flipX = false;
+        
       }
 
       if (flipX) {
@@ -75,6 +76,7 @@ class Character {
       } else {
 
         image(this.runningCycle[i], xImage, yImage);
+        
       }
 
     } else {
