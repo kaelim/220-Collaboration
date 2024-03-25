@@ -1,4 +1,4 @@
-
+/*
 class Character {
   constructor(runStrings, idleStrings, x, y, w, h) {
     this.x = x;
@@ -36,7 +36,7 @@ class Character {
      
     this.runningCycle[ii].resize(136,0);
     }
-  }*/
+  }
 
   drawCharacter() {
 
@@ -51,17 +51,17 @@ class Character {
     if (keyIsPressed) {
 
       if (key == "w") {
-        yImage -= 1;
+        yImage -= 2;
       }
       if (key == "s") {
-        yImage += 1;
+        yImage += 2;
       }
       if (key == "a") {
-        xImage -= 1;
+        xImage -= 2;
         flipX = true;
       }
       if (key == "d") {
-        xImage += 1;
+        xImage += 2;
         flipX = false;
         
       }
@@ -84,4 +84,4 @@ class Character {
 
     }
   }
-}
+}*/
